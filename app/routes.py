@@ -20,7 +20,7 @@ def collection_details(collection_id):
 
 # Add a new collection
 @main.route("collections/new", methods=["GET", "POST"])
-def add_new_collection():
+def new_collection():
     if request.method == "POST":
         title = request.form.get("title")
         disease_term = request.form.get("title")
