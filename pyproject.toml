@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "TissueHub"
+version = "0.1.0"
+description = "A web application for managing tissue sample collections."
+authors = ["Benjamin Partridge <bp1183@my.bristol.ac.uk>"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "app" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+flask = "^2.3.0"
+flask-sqlalchemy = "^3.0.0"
+sqlalchemy = "^2.0.0"
+psycopg2-binary = "^2.9.0"
+python-dotenv = "^1.0.0"  # For managing environment variables
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0.0"
+pytest-flask = "^1.2.0"
+flake8 = "^6.0.0"
+black = "^23.0.0"
+mypy = "^1.0.0"
+
+[tool.poetry.scripts]
+start = "TissueHub.app:run"  # Entry point for your app
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -96,3 +96,29 @@ Route: `/collection/add`
 ## Deployment
 1.  Use a service like Heroku or Railway.app for hosting.
 2. Add instructions for running the application locally and deploying it.
+
+## Overview of Model-View-Controller (MVC) Architecture in Flask
+### 1. Model
+- Represents the data layer and the logic to interact with the database
+- Encapsulates the database schema and handles the CRUD operations
+- The `model.py` file defines the `Collection` and `Sample` models.
+
+### 2. View
+- Represents the presentation layer, which displays data to the user.
+- Usually implemented as HTML templates rendered by Flask
+- Example: `index.html`, `collection.html`, and `add_collection.html`.
+
+### 3. Controller
+- Represents the application logic and handles user interactions.
+- Connects the model and the view, coordinating their interactions.
+- The `routes.py` file contains the functions that process user requests and manage data.
+
+## Installation Instructions
+Poetry is used to manage packages and dependencies.
+
+Use the command
+```bash
+poetry shell
+```
+to activate the vritual environment for the project.
+
