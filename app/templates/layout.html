@@ -1,0 +1,24 @@
+// Provides the base layout for all pages.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Tissue Sample Directory{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Tissue Sample Directory</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('new_collection') }}">Add Collection</a>
+            <a href="{{ url_for('new_sample') }}">Add Sample</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Tissue Sample Directory</p>
+</body>
+</html>

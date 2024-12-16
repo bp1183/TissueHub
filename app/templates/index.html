@@ -1,0 +1,16 @@
+// Displays the list of all collections (retieved from the database) and links to their details
+{% extends "layout.html"}
+{% block title}Home{% endblock %}
+{% block content %}
+<h2>Collections</h2>
+<ul>
+    {% for collection in collections}
+    <li>
+        <a href="{{ url_for('collection_details', collection_id=collection.id) }}">
+            {{ collection.title }} ({{ collection.disease_term }})
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+
