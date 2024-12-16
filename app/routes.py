@@ -1,24 +1,20 @@
 from flask import render_template, request, redirect, url_for, flash
-from app import app  # Import the app object directly
 from app.models import db, Collection, Sample
 
 
 # Home page: Display all collections
-@app.route("/")
 def index():
     collections = Collection.query.all()
     return render_template("index.html", collections=collections)
 
 
 # View details of a specific collection and its samples
-@app.route("/collections/<int:collection_id>")
 def collection_details(collection_id):
     collection = Collection.query.get_or_404(collection_id)
     return render_template("collection_details.html", collection=collection)
 
 
 # Add a new collection
-@app.route("/collections/new", methods=["GET", "POST"])
 def new_collection():
     if request.method == "POST":
         title = request.form.get("title")
@@ -37,7 +33,6 @@ def new_collection():
 
 
 # Add a new sample to an existing collection
-@app.route("/collections/<int:collection_id>/samples/new", methods=["GET", "POST"])
 def new_sample(collection_id):
     collection = Collection.query.get_or_404(collection_id)
     if request.method == "POST":
