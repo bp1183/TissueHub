@@ -1,0 +1,15 @@
+# Python-related
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+
+# Virtual environment
+.venv/
+
+# Flask-specific
+db/
+*.db
+
+# Pytest
+.cache/
