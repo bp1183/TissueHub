@@ -28,7 +28,7 @@ def new_collection():
             db.session.add(new_collection)
             db.session.commit()
             flash("Collection added successfully!", "success")
-            return redirect(url_for("main.index"))
+            return redirect(url_for("index"))
 
     return render_template("new_collection.html")
 
@@ -48,7 +48,7 @@ def new_sample(collection_id):
         else:
             try:
                 # Try to convert last_updated to a datetime object
-                last_updated = datetime.strptime(last_updated_str, "%Y-%m-%d %H:%M:%S")
+                last_updated = datetime.strptime(last_updated_str, "%Y-%m-%d")
                 donor_count = int(donor_count)
             except ValueError:
                 flash("Invalid date format or donor count. Please use the correct format!", "error")

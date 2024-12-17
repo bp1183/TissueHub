@@ -2,6 +2,7 @@ import os
 from flask import Flask
 from app.models import db
 from app.routes import index, collection_details, new_collection, new_sample
+from app.cli import init_db
 
 
 def create_app(testing=False):
@@ -22,5 +23,8 @@ def create_app(testing=False):
     app.add_url_rule("/collections/<int:collection_id>", "collection_details", collection_details)
     app.add_url_rule("/collections/new", "new_collection", new_collection, methods=["GET", "POST"])
     app.add_url_rule("/collections/<int:collection_id>/samples/new", "new_sample", new_sample, methods=["GET", "POST"])
+
+    # Regsiter the CLI command
+    app.cli.add_command(init_db)
 
     return app
