@@ -1,4 +1,4 @@
-# Tissue Sample Directory
+# TissueHub: Tissue Sample Directory
 A Flask-based web application for managing collections of tissue samples and their associated metadata.
 
 ## Features
