@@ -13,7 +13,13 @@ def create_app(testing=False):
     if testing:
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
     else:
-        db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'db', 'tissuehub.db')
+        db_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'db')
+        db_path = os.path.join(db_folder, 'tissuehub.db')
+
+        if not os.path.exists(db_folder):
+            os.makedirs(db_folder)
+            print(f"Created database directory at: {db_folder}")
+
         app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
 
     # Bind the db (SQLAlchemy) instance to the app
