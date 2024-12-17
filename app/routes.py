@@ -3,20 +3,20 @@ from flask import render_template, request, redirect, url_for, flash
 from app.models import db, Collection, Sample
 
 
-# Home page: Display all collections
 def index():
+    """Home page: Display all collections."""
     collections = Collection.query.all()
     return render_template("index.html", collections=collections)
 
 
-# View details of a specific collection and its samples
 def collection_details(collection_id):
+    """View details of a specific collection and its samples."""
     collection = Collection.query.get_or_404(collection_id)
     return render_template("collection_details.html", collection=collection)
 
 
-# Add a new collection
 def new_collection():
+    """Add a new collection."""
     if request.method == "POST":
         title = request.form.get("title")
         disease_term = request.form.get("title")
@@ -33,8 +33,8 @@ def new_collection():
     return render_template("new_collection.html")
 
 
-# Add a new sample to an existing collection
 def new_sample(collection_id):
+    """Add a new sample to an existing collection."""
     collection = Collection.query.get_or_404(collection_id)
 
     if request.method == "POST":

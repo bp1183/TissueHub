@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from flask_migrate import Migrate
 from app.models import db
 from app.routes import index, collection_details, new_collection, new_sample
 from app.cli import init_db
@@ -17,6 +18,8 @@ def create_app(testing=False):
 
     # Bind the db (SQLAlchemy) instance to the app
     db.init_app(app)
+
+    migrate = Migrate(app, db)
 
     # Register routes
     app.add_url_rule("/", "index", index)

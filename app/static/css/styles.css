@@ -12,6 +12,18 @@ header {
     text-align: center;
 }
 
+header a {
+    color: #FFD700;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header a:hover {
+    color: #FFAA00;
+}
+
 .container {
     width: 80%;
     margin: auto;
@@ -20,15 +32,56 @@ header {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
+
 button {
     padding: 0.5rem 1rem;
-    background-color: #007bff;
-    color: white;
+    background-color: #FFD700;
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #FFAA00;
+}
+
+button:active {
+    background-color: #e68900;
+}
+
+footer {
+    text-align: center;
+    background-color: #343a40;
+    color: white;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.collection-container {
+    max-height: 500px; /* Set the maximum height for the container */
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add space between bullet points */
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+ul li a {
+    display: block;
+    margin-top: 5px;
 }

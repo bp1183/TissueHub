@@ -35,14 +35,14 @@ def sample_data(app):
 
 def test_collection_creation(sample_data):
     """Test the collection model."""
-    collection = sample_data.collection  # Access the collection via sample data
+    collection = sample_data.collection
     assert collection.title == "Test Collection"
     assert collection.disease_term == "Test Disease"
 
 
 def test_sample_creation(sample_data):
     """Test the Sample model,"""
-    sample = sample_data  # The sample fixture provides a sample object
+    sample = sample_data
     assert sample.material_type == "Test Material"
     assert sample.donor_count == 5
     assert sample.last_updated is not None

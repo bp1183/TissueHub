@@ -4,15 +4,19 @@
 
 {% block content %}
     <h2>Collections</h2>
+    <div class="collection-container"> <!-- Add scrollable container -->
     <ul>
         {% for collection in collections %}
             <li>
                 <strong>{{ collection.title }}</strong> - {{ collection.disease_term }}
-                <a href="{{ url_for('collection_details', collection_id=collection.id) }}">View Details</a>
-                <a href="{{ url_for('new_sample', collection_id=collection.id) }}">Add Sample</a>
+                <div>
+                    <a href="{{ url_for('collection_details', collection_id=collection.id) }}">View Details</a>
+                    <a href="{{ url_for('new_sample', collection_id=collection.id) }}">Add Sample</a>
+                </div>
             </li>
         {% else %}
             <li>No collections available.</li>
         {% endfor %}
     </ul>
+    </div>
 {% endblock %}
