@@ -31,7 +31,5 @@ def test_index(client, init_db, app):
 
     # Now test if the collection shows up in the index route
     response = client.get('/')
-    print(response.data)
     assert response.status_code == 200
     assert b'Test Collection' in response.data
-

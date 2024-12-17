@@ -32,5 +32,7 @@ class Sample(db.Model):
     collection = db.relationship("Collection", back_populates="samples")
 
     def __repr__(self):
-        return f"<Sample id={self.id} collection_id={self.collection_id} donor_count={self.donor_count} material_type={self.material_type}>"
-
+        return (
+            f"<Sample id={self.id} collection_id={self.collection_id}"
+            f"donor_count={self.donor_count} material_type={self.material_type}>"
+        )
